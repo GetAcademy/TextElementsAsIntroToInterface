@@ -1,17 +1,17 @@
 ﻿namespace TextElementsAsIntroToInterface
 {
-    internal class BulletPoint
+    internal class IndentedParagraph
     {
         private string _text;
 
-        public BulletPoint(string text)
+        public IndentedParagraph(string text)
         {
             _text = text;
         }
 
         public void Show()
         {
-            Console.Write(" * ");
+            Console.CursorLeft = 8;
             Console.WriteLine(_text);
         }
     }
