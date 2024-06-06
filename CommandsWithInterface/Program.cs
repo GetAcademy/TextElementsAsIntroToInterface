@@ -1,26 +1,57 @@
 ﻿using CommandsWithInterface;
-using Task = CommandsWithInterface.Task;
 
 var todoApp = new TodoApp();
+var commands = new ICommand[]
+{
+    new AddTaskCommand(todoApp),
+    new MarkTaskAsDoneCommand(todoApp),
+    new RemoveEverythingCommand(todoApp),
+};
 while (true)
 {
     Console.Clear();
     todoApp.Show();
-    Console.WriteLine(@"Hva vil du gjøre? 
-1 = legge til ny oppgave
-2 = markere oppgave som gjort");
-    var cmdNo = Console.ReadLine();
-    if (cmdNo == "1")
+    Console.WriteLine("Hva vil du gjøre? ");
+    foreach (var command in commands)
     {
-        Console.Write("Hva er oppgaven? ");
-        var taskText = Console.ReadLine();
-        var task = new Task(taskText);
-        todoApp.AddTask(task);
+        command.ShowMenuItem();
     }
-    else if (cmdNo == "2")
+    var cmd = Console.ReadLine();
+    var theCommand = FindCommand(commands, cmd);
+    theCommand?.Run();
+    //if (cmdNo == "1")
+    //{
+    //    cmd1.Run();
+    //}
+    //else if (cmdNo == "2")
+    //{
+    //    cmd2.Run();
+    //}
+
+    //antipattern - mye scoping
+    //foreach (var elA in list1)
+    //{
+    //    if ()
+    //    {
+    //        foreach (var elB in list2)
+    //        {
+    //            if ()
+    //            {
+    //                fy
+    //            }
+    //        }
+    //    }
+    //}
+}
+
+ICommand? FindCommand(ICommand[] commands1, string? s)
+{
+    foreach (var command in commands1)
     {
-        Console.WriteLine("Skriv inn rad nr. til oppgaven som er gjort: ");
-        var taskNo = Convert.ToInt32(Console.ReadLine());
-        todoApp.MarkDone(taskNo);
+        if (command.Char == s[0])
+        {
+            return command;
+        }
     }
+    return null;
 }

@@ -38,5 +38,10 @@
             var taskC = new Task("Støvsuge", new DateTime(2023, 11, 24));
             return new List<Task> { taskA, taskB, taskC };
         }
+
+        public void RemoveAll()
+        {
+            _tasks.Clear();
+        }
     }
 }
