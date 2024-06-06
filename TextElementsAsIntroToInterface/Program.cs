@@ -1,14 +1,13 @@
 ﻿using TextElementsAsIntroToInterface;
 
-var header = new CenteredHeader("Overskrift", '*');
-var bulletPointA = new BulletPoint("A");
-var bulletPointB = new BulletPoint("B");
-var bulletPointC = new BulletPoint("C");
-var paragraph = new IndentedParagraph("Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. ");
-
 var textElements = new ITextElement[]
 {
-    header, bulletPointA, bulletPointB, bulletPointC, paragraph
+    new CenteredHeader("Overskrift", '*'), 
+    new BulletPoint("A"), 
+    new BulletPoint("B"), 
+    new BulletPoint("C"), 
+    new IndentedParagraph("Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. Bla bla bla. "),
+    new InvertedText("Terje"),
 };
 
 foreach (var element in textElements)
