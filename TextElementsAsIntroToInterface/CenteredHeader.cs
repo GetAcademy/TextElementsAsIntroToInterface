@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextElementsAsIntroToInterface
+﻿namespace TextElementsAsIntroToInterface
 {
-    internal class CenteredHeader
+    internal class CenteredHeader : ITextElement
     {
         private string _text;
         private char _paddingChar;
@@ -20,11 +14,11 @@ namespace TextElementsAsIntroToInterface
         public void Show()
         {
             var startPos = (Console.WindowWidth - _text.Length) / 2;
-            var dashCount = startPos - 4;
-            var dashes = "  " + new string(_paddingChar, dashCount) + "  ";
-            Console.Write(dashes);
+            var padCount = startPos - 4;
+            var padding = "  " + new string(_paddingChar, padCount) + "  ";
+            Console.Write(padding);
             Console.Write(_text);
-            Console.WriteLine(dashes);
+            Console.WriteLine(padding);
         }
     }
 }

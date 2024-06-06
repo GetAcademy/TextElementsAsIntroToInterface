@@ -1,6 +1,6 @@
 ﻿namespace TextElementsAsIntroToInterface
 {
-    internal class IndentedParagraph
+    internal class IndentedParagraph : ITextElement
     {
         private string _text;
 
@@ -11,7 +11,7 @@
 
         public void Show()
         {
-            Console.CursorLeft = 8;
+            Console.CursorLeft = 4;
             Console.WriteLine(_text);
         }
     }
