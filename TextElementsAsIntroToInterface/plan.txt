@@ -1,0 +1,7 @@
+1: Intro til interface via tekst-elementer som gjør samme ting på forskjellig måte
+   Polymorfisme (arv og interface - vs JavaScript)
+
+2: Kommandostyrt program
+
+Bonus: Hva er OO? Eksempel: Hus
+Oppførsel kan også være klasser.
